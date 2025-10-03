@@ -90,7 +90,7 @@ function renderQuestions() {
 }
 renderQuestions();
 
-// Submit quiz
+/// Submit quiz
 submitBtn.addEventListener("click", function () {
   let score = 0;
 
@@ -100,12 +100,13 @@ submitBtn.addEventListener("click", function () {
     }
   }
 
-  scoreDiv.textContent = `Your score is ${score} out of ${questions.length}`;
+  // Add period at the end so Cypress matches
+  scoreDiv.textContent = `Your score is ${score} out of ${questions.length}.`;
   localStorage.setItem("score", score);
 });
 
 // Show last score from localStorage if available
 let lastScore = localStorage.getItem("score");
 if (lastScore !== null) {
-  scoreDiv.textContent = `Your score is ${lastScore} out of ${questions.length}`;
+  scoreDiv.textContent = `Your score is ${lastScore} out of ${questions.length}.`;
 }
